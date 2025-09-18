@@ -1,0 +1,253 @@
+/* Reset básico e estilos gerais */
+* {
+    margin: 3;
+    padding: 1;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Rolagem suave para âncoras */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+/* Navegação com transição de cor */
+nav {
+    background-color: #2c3e50;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: background-color 0.5s ease;
+}
+
+/* Classe para mudar a cor da nav ao rolar (simulada com :focus-within ou :hover para CSS puro) */
+nav.scrolled {
+    background-color: #34495e; /* Cor mais clara ao "rolar" */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.nav-links li {
+    margin: 0;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #3498db;
+    transform: scale(1.1);
+}
+
+/* Header */
+header {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Main */
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Animação para seções */
+.animate-section {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Atraso progressivo para cada seção */
+.animate-section:nth-child(1) { animation-delay: 0.2s; }
+.animate-section:nth-child(2) { animation-delay: 0.4s; }
+.animate-section:nth-child(3) { animation-delay: 0.6s; }
+.animate-section:nth-child(4) { animation-delay: 0.8s; }
+.animate-section:nth-child(5) { animation-delay: 1.0s; }
+.animate-section:nth-child(6) { animation-delay: 1.2s; }
+
+section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    border-bottom: 1px solid #eee;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+section:hover {
+    transform: translateY(-5px); /* Leve levantamento */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    background-color: #f9f9f9; /* Fundo claro ao hover */
+}
+
+section h2 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+section h3 {
+    font-size: 1.2rem;
+    margin: 0.8rem 0;
+    color: #34495e;
+}
+
+/* Foto de perfil com animação */
+.foto-perfil {
+    width: 200px;
+    height: auto;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto 1rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    animation: fadeInScale 1s ease-in-out;
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Animação para itens da lista */
+.animate-item {
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: slideInLeft 0.5s ease-out forwards;
+}
+
+.animate-item:nth-child(1) { animation-delay: 0.3s; }
+.animate-item:nth-child(2) { animation-delay: 0.4s; }
+.animate-item:nth-child(3) { animation-delay: 0.5s; }
+.animate-item:nth-child(4) { animation-delay: 0.6s; }
+
+@keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Listas */
+ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+/* Efeito de pulsação nos links de contato */
+.contact-link {
+    display: block;
+    margin: 0.5rem 0;
+}
+
+.contact-link a, .contact-link {
+    color: #3498db;
+    text-decoration: none;
+    position: relative;
+    animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.contact-link a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #2c3e50;
+    color: white;
+    margin-top: 2rem;
+}
+
+/* Responsivo para mobile */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    main {
+        padding: 1rem;
+    }
+
+    .foto-perfil {
+        width: 150px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+
+    .nav-links a {
+        padding: 0.5rem;
+    }
+
+    section:hover {
+        transform: none; /* Desativa levantamento em mobile para evitar bugs */
+    }
+}
